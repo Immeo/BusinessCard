@@ -2,6 +2,48 @@ from django.db import models
 # Create your models here.
 
 class edit_text(models.Model):
+    TopLiNav1 = models.CharField(
+        verbose_name='Изменить текст пункта меню 1',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    TopLiNav2 = models.CharField(
+        verbose_name='Изменить текст пункта меню 2',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    TopLiNav3 = models.CharField(
+        verbose_name='Изменить текст пункта меню 3',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    TopLiNav4 = models.CharField(
+        verbose_name='Изменить текст пункта меню 4',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    TopLiNav5 = models.CharField(
+        verbose_name='Изменить текст пункта меню 5',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    TopLiNav6 = models.CharField(
+        verbose_name='Изменить текст пункта меню 6',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    TopLiNav7 = models.CharField(
+        verbose_name='Изменить текст пункта меню 7',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
     TopFirstH1 = models.CharField(
         verbose_name='Изменить текст первого H1',
         max_length=150,
