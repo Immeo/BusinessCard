@@ -1,7 +1,8 @@
 from django.db import models
 # Create your models here.
 
-class edit_text(models.Model):
+
+class EditTtext(models.Model):
     TopLiNav1 = models.CharField(
         verbose_name='Изменить текст пункта меню 1',
         max_length=150,
@@ -199,3 +200,51 @@ class edit_text(models.Model):
 
     def __str__(self):
         return self.TopFirstH1
+
+
+class reviews(models.Model):
+    TextReviews = models.TextField(
+        verbose_name='Текст отзыва',
+        blank=True,
+        null=True,
+    )
+    PhotoReviews = models.ImageField(
+        verbose_name='Фото клиента',
+        upload_to='reviews'
+    )
+    FioReviews = models.CharField(
+        verbose_name='Имя фамилия клиента',
+        max_length=250,
+        blank=True,
+        null=True,
+    )
+    RoleReviews = models.CharField(
+        verbose_name='роль клиента',
+        max_length=250,
+        blank=True,
+        null=True,
+    )
+
+    def __str__(self):
+        return self.FioReviews
+
+class team(models.Model):
+    PhotoTeam = models.ImageField(
+        verbose_name='Фото сотрудника',
+        upload_to='team'
+    )
+    FioTeam = models.CharField(
+        verbose_name='Имя фамилия сотрудника',
+        max_length=250,
+        blank=True,
+        null=True,
+    )
+    RoleTeam = models.CharField(
+        verbose_name='роль сотрудника',
+        max_length=250,
+        blank=True,
+        null=True,
+    )
+
+    def __str__(self):
+        return self.FioTeam
