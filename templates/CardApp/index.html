@@ -119,6 +119,7 @@
 
   <main id="main">
 
+    {% for text in AboutSection %}
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
       <div class="container" data-aos="fade-up">
@@ -145,8 +146,10 @@
 
       </div>
     </section><!-- End About Section -->
+    {% endfor %}
 
-    <!-- ======= Counts Section ======= -->
+    {% for text in CountsSection %}
+    <!-- ======= CountsSection ======= -->
     <section id="counts" class="counts section-bg">
       <div class="container">
 
@@ -154,29 +157,29 @@
 
           <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
             <div class="count-box">
-              <span data-toggle="counter-up">{{text.AboutCounterNumber1}}</span>
-              <p>{{text.AboutCounterTitle1}}</p>
+              <span data-toggle="counter-up">{{text.CounterNumber1}}</span>
+              <p>{{text.CounterTitle1}}</p>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
             <div class="count-box">
-              <span data-toggle="counter-up">{{text.AboutCounterNumber2}}</span>
-              <p>{{text.AboutCounterTitle2}}</p>
+              <span data-toggle="counter-up">{{text.CounterNumber2}}</span>
+              <p>{{text.CounterTitle2}}</p>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
             <div class="count-box">
-              <span data-toggle="counter-up">{{text.AboutCounterNumber3}}</span>
-              <p>{{text.AboutCounterTitle3}}</p>
+              <span data-toggle="counter-up">{{text.CounterNumber3}}</span>
+              <p>{{text.CounterTitle3}}</p>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
             <div class="count-box">
-              <span data-toggle="counter-up">{{text.AboutCounterNumber4}}</span>
-              <p>{{text.AboutCounterTitle4}}</p>
+              <span data-toggle="counter-up">{{text.CounterNumber4}}</span>
+              <p>{{text.CounterTitle4}}</p>
             </div>
           </div>
 
@@ -184,46 +187,39 @@
 
       </div>
     </section><!-- End Counts Section -->
+    {% endfor %}
 
+    {% for generic_AboutVideoSection in AboutVideoSection %}
     <!-- ======= About Video Section ======= -->
     <section id="about-video" class="about-video">
       <div class="container" data-aos="fade-up">
-
         <div class="row">
-
           <div class="col-lg-6 video-box align-self-baseline" data-aos="fade-right" data-aos-delay="100">
-            <img src="{% static '/img/about-video.jpg' %}" class="img-fluid" alt="">
-            <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video"
+            <img src="{{generic_AboutVideoSection.AboutVideoSectionPlug.url}}" class="img-fluid" alt="">
+            <a href="{{generic_AboutVideoSection.AboutVideoSectionUrl}}" class="venobox play-btn mb-4"
+              data-vbtype="video"
               data-autoplay="true"></a>
           </div>
-
-          <div class="col-lg-6 pt-3 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
-            <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
-            <p class="font-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore
-              magna aliqua.
-            </p>
-            <ul>
-              <li><i class="bx bx-check-double"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-              <li><i class="bx bx-check-double"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-              <li><i class="bx bx-check-double"></i> Voluptate repellendus pariatur reprehenderit corporis sint.</li>
-              <li><i class="bx bx-check-double"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla
-                pariatur.</li>
-            </ul>
-            <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-              voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-              culpa qui officia deserunt mollit anim id est laborum
-            </p>
+            <div class="col-lg-6 pt-3 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
+              <h3>{{generic_AboutVideoSection.AboutVideoSectionH3}}</h3>
+              <p class="font-italic">{{generic_AboutVideoSection.AboutVideoSectionP}}</p>
+              <ul>
+                <li><i class="bx bx-check-double"></i>
+                  {{generic_AboutVideoSection.AboutVideoSectionLi1}}</li>
+                <li><i class="bx bx-check-double"></i>
+                  {{generic_AboutVideoSection.AboutVideoSectionLi2}}</li>
+                <li><i class="bx bx-check-double"></i>
+                  {{generic_AboutVideoSection.AboutVideoSectionLi3}}
+                </li>
+                <li><i class="bx bx-check-double"></i>
+                  {{generic_AboutVideoSection.AboutVideoSectionLi4}}</li>
+              </ul>
+              <p>{{generic_AboutVideoSection.AboutVideoSectionEndP}}</p>
+            </div>
           </div>
-
         </div>
-
-      </div>
     </section><!-- End About Video Section -->
+    {% endfor %}
 
     <!-- ======= Clients Section ======= -->
     <section id="clients" class="clients section-bg">

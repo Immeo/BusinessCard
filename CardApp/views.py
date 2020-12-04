@@ -1,16 +1,19 @@
 # from django.shortcuts import render
 from django.views.generic import ListView
-from .models import EditTtext, reviews, team
+from .models import *
 # Create your views here.
 
 
-class EditTtextListView(ListView):
-    model = EditTtext
+class TopNavAndHeroListView(ListView):
+    model = TopNavAndHero
     template_name = "CardApp/index.html"
     
     def get_context_data(self, **kwargs):
-        context = super(EditTtextListView, self).get_context_data(**kwargs)
+        context = super(TopNavAndHeroListView, self).get_context_data(**kwargs)
         context['reviews'] = reviews.objects.all()
+        context['AboutSection'] = AboutSection.objects.all()
+        context['CountsSection'] = CountsSection.objects.all()
+        context['AboutVideoSection'] = AboutVideoSection.objects.all()
         context['team'] = team.objects.all()
         return context
     
