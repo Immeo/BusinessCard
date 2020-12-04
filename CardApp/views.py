@@ -7,13 +7,13 @@ from .models import *
 class TopNavAndHeroListView(ListView):
     model = TopNavAndHero
     template_name = "CardApp/index.html"
-    
+
     def get_context_data(self, **kwargs):
         context = super(TopNavAndHeroListView, self).get_context_data(**kwargs)
         context['reviews'] = reviews.objects.all()
         context['AboutSection'] = AboutSection.objects.all()
         context['CountsSection'] = CountsSection.objects.all()
         context['AboutVideoSection'] = AboutVideoSection.objects.all()
+        context['TestimonialsAndSevicesText'] = TestimonialsAndSevicesText.objects.all()
         context['team'] = team.objects.all()
         return context
-    

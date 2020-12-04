@@ -298,6 +298,102 @@ class reviews(models.Model):
         return self.FioReviews
 
 
+class TestimonialsAndSevicesText(models.Model):
+    TestimonialsH3 = models.CharField(
+        verbose_name='Изменить заговолок секции Testimonials',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    TestimonialsP = models.TextField(
+        verbose_name='Изменить текст под заговолком Testimonials',
+        blank=True,
+        null=True,
+    )
+    SevicesH3 = models.CharField(
+        verbose_name='Изменить заговолок секции Sevices',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    SevicesP = models.TextField(
+        verbose_name='Изменить текст под заговолком Sevices',
+        blank=True,
+        null=True,
+    )
+    SevicesCardBlockTitle1 = models.CharField(
+        verbose_name='Изменить название первого карт блока',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    SevicesCardBlockText1 = models.TextField(
+        verbose_name='Изменить текст первого карт блока',
+        blank=True,
+        null=True,
+    )
+    SevicesCardBlockTitle2 = models.CharField(
+        verbose_name='Изменить название второго карт блока',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    SevicesCardBlockText2 = models.TextField(
+        verbose_name='Изменить текст второго карт блока',
+        blank=True,
+        null=True,
+    )
+    SevicesCardBlockTitle3 = models.CharField(
+        verbose_name='Изменить название третьего карт блока',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    SevicesCardBlockText3 = models.TextField(
+        verbose_name='Изменить текст третьего карт блока',
+        blank=True,
+        null=True,
+    )
+    SevicesCardBlockTitle4 = models.CharField(
+        verbose_name='Изменить название четвертого карт блока',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    SevicesCardBlockText4 = models.TextField(
+        verbose_name='Изменить текст четвертого карт блока',
+        blank=True,
+        null=True,
+    )
+    SevicesCardBlockTitle5 = models.CharField(
+        verbose_name='Изменить название пятого карт блока',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    SevicesCardBlockText5 = models.TextField(
+        verbose_name='Изменить текст пятого карт блока',
+        blank=True,
+        null=True,
+    )
+    SevicesCardBlockTitle6 = models.CharField(
+        verbose_name='Изменить название шестого карт блока',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    SevicesCardBlockText6 = models.TextField(
+        verbose_name='Изменить текст шестого карт блока',
+        blank=True,
+        null=True,
+    )
+
+    def __str__(self):
+        return '%s %s' % (
+            self.TestimonialsH3,
+            self.SevicesH3
+            )
+
 class team(models.Model):
     PhotoTeam = models.ImageField(
         verbose_name='Фото сотрудника',
