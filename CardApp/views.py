@@ -15,5 +15,8 @@ class TopNavAndHeroListView(ListView):
         context['CountsSection'] = CountsSection.objects.all()
         context['AboutVideoSection'] = AboutVideoSection.objects.all()
         context['TestimonialsAndSevicesText'] = TestimonialsAndSevicesText.objects.all()
+        context['CtaSection'] = CtaSection.objects.all()
         context['team'] = team.objects.all()
+        context['QuestionsSectionText'] = QuestionsSectionText.objects.all()
+        context['GenericAsk'] = GenericAsk.objects.all()
         return context

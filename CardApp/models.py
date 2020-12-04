@@ -108,7 +108,7 @@ class TopNavAndHero(models.Model):
         blank=True,
         null=True,
     )
-        
+
     def __str__(self):
         return self.TopFirstH1
 
@@ -270,6 +270,7 @@ class AboutVideoSection(models.Model):
     def __str__(self):
         return self.AboutVideoSectionH3
 
+
 class reviews(models.Model):
     TextReviews = models.TextField(
         verbose_name='Текст отзыва',
@@ -392,7 +393,31 @@ class TestimonialsAndSevicesText(models.Model):
         return '%s %s' % (
             self.TestimonialsH3,
             self.SevicesH3
-            )
+        )
+
+
+class CtaSection(models.Model):
+    CtaH3 = models.CharField(
+        verbose_name='Изменить текст заголовка',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    CtaP = models.TextField(
+        verbose_name='Изменить текст блока',
+        blank=True,
+        null=True,
+    )
+    CtaBtn = models.CharField(
+        verbose_name='Изменить текст кнопки',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+
+    def __str__(self):
+        return self.CtaH3
+
 
 class team(models.Model):
     PhotoTeam = models.ImageField(
@@ -415,3 +440,38 @@ class team(models.Model):
 
     def __str__(self):
         return self.FioTeam
+
+
+class QuestionsSectionText(models.Model):
+    QuestionsSectionTextH3 = models.CharField(
+        verbose_name='Изменить текст заголовка',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    QuestionsSectionTextP = models.TextField(
+        verbose_name='Изменить текст блока',
+        blank=True,
+        null=True,
+    )
+
+    def __str__(self):
+        return self.QuestionsSectionTextH3
+
+
+class GenericAsk(models.Model):
+    GenericAskLi = models.CharField(
+        verbose_name='Изменить текст вопроса',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    GenericAskP = models.TextField(
+        verbose_name='Изменить текст ответа',
+        blank=True,
+        null=True,
+    )
+
+
+    def __str__(self):
+        return self.GenericAskLi
