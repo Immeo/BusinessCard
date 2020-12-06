@@ -1,4 +1,6 @@
 from django.db import models
+
+
 # Create your models here.
 
 
@@ -419,6 +421,274 @@ class CtaSection(models.Model):
         return self.CtaH3
 
 
+class pricing(models.Model):
+    CurrencyList = (
+        ('USD', 'USD'),
+        ('EUR', 'EUR'),
+        ('RUB', 'RUB'),
+    )
+    PricingH3 = models.CharField(
+        verbose_name='Изменить текст заголовка',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    PricingP = models.TextField(
+        verbose_name='Изменить текст блока',
+        blank=True,
+        null=True,
+    )    
+    PricingTittleColumn1 = models.CharField(
+        verbose_name='Изменить название первой колонки',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    PricingCurrencyColumn1 = models.CharField(
+        verbose_name='Изменить валюту первой колонки',
+        max_length=150,
+        choices=CurrencyList,
+        blank=True,
+        null=True,
+    )    
+    PricingPriceColumn1 = models.DecimalField(
+        verbose_name='Изменить цену первой колонки',
+        max_digits=10,
+        decimal_places=2,
+        blank=True,
+        null=True,
+    )
+    PricingMonthColumn1 = models.CharField(
+        verbose_name='Изменить текст после цены первой колонки',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    PricingUl1Li1 = models.CharField(
+        verbose_name='Изменить текст первого пункта первой колонки',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    PricingCheckUl1Li1 = models.BooleanField(
+        verbose_name='Включить пункт',
+        default=True,
+    )
+    PricingUl1Li2 = models.CharField(
+        verbose_name='Изменить текст второго пункта первой колонки',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    PricingCheckUl1Li2 = models.BooleanField(
+        verbose_name='Включить пункт',
+        default=True,
+    )
+    PricingUl1Li3 = models.CharField(
+        verbose_name='Изменить текст третьего пункта первой колонки',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    PricingCheckUl1Li3 = models.BooleanField(
+        verbose_name='Включить пункт',
+        default=True,
+    )
+    PricingUl1Li4 = models.CharField(
+        verbose_name='Изменить текст четвертого пункта первой колонки',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    PricingCheckUl1Li4 = models.BooleanField(
+        verbose_name='Включить пункт',
+        default=True,
+    )
+    PricingUl1Li5 = models.CharField(
+        verbose_name='Изменить текст пятого пункта первой колонки',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    PricingCheckUl1Li5 = models.BooleanField(
+        verbose_name='Включить пункт',
+        default=True,
+    )
+    PricingUl1bBtn = models.CharField(
+        verbose_name='Изменить текст кнопки первой колонки',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    PricingTittleColumn2 = models.CharField(
+        verbose_name='Изменить название второй колонки',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    PricingCurrencyColumn2 = models.CharField(
+        verbose_name='Изменить валюту второй колонки',
+        max_length=150,
+        choices=CurrencyList,
+        blank=True,
+        null=True,
+    )
+    PricingPriceColumn2 = models.DecimalField(
+        verbose_name='Изменить цену второй колонки',
+        max_digits=10,
+        decimal_places=2,
+        blank=True,
+        null=True,
+    )
+    PricingMonthColumn2 = models.CharField(
+        verbose_name='Изменить текст после цены второй колонки',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    PricingUl2Li1 = models.CharField(
+        verbose_name='Изменить текст первого пункта второй колонки',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    PricingCheckUl2Li1 = models.BooleanField(
+        verbose_name='Включить пункт',
+        default=True,
+    )
+    PricingUl2Li2 = models.CharField(
+        verbose_name='Изменить текст второго пункта второй колонки',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    PricingCheckUl2Li2 = models.BooleanField(
+        verbose_name='Включить пункт',
+        default=True,
+    )
+    PricingUl2Li3 = models.CharField(
+        verbose_name='Изменить текст третьего пункта второй колонки',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    PricingCheckUl2Li3 = models.BooleanField(
+        verbose_name='Включить пункт',
+        default=True,
+    )
+    PricingUl2Li4 = models.CharField(
+        verbose_name='Изменить текст четвертого пункта второй колонки',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    PricingCheckUl2Li4 = models.BooleanField(
+        verbose_name='Включить пункт',
+        default=True,
+    )
+    PricingUl2Li5 = models.CharField(
+        verbose_name='Изменить текст пятого пункта второй колонки',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    PricingCheckUl2Li5 = models.BooleanField(
+        verbose_name='Включить пункт',
+        default=True,
+    )
+    PricingUl1bBtn2 = models.CharField(
+        verbose_name='Изменить текст кнопки второй колонки',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    PricingTittleColumn3 = models.CharField(
+        verbose_name='Изменить название третий колонки',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    PricingCurrencyColumn3 = models.CharField(
+        verbose_name='Изменить валюту третий колонки',
+        max_length=150,
+        choices=CurrencyList,
+        blank=True,
+        null=True,
+    )
+    PricingPriceColumn3 = models.DecimalField(
+        verbose_name='Изменить цену третий колонки',
+        max_digits=10,
+        decimal_places=2,
+        blank=True,
+        null=True,
+    )
+    PricingMonthColumn3 = models.CharField(
+        verbose_name='Изменить текст после цены третий колонки',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    PricingUl3Li1 = models.CharField(
+        verbose_name='Изменить текст первого пункта третий колонки',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    PricingCheckUl3Li1 = models.BooleanField(
+        verbose_name='Включить пункт',
+        default=True,
+    )
+    PricingUl3Li2 = models.CharField(
+        verbose_name='Изменить текст второго пункта третий колонки',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    PricingCheckUl3Li2 = models.BooleanField(
+        verbose_name='Включить пункт',
+        default=True,
+    )
+    PricingUl3Li3 = models.CharField(
+        verbose_name='Изменить текст третьего пункта третий колонки',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    PricingCheckUl3Li3 = models.BooleanField(
+        verbose_name='Включить пункт',
+        default=True,
+    )
+    PricingUl3Li4 = models.CharField(
+        verbose_name='Изменить текст четвертого пункта третий колонки',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    PricingCheckUl3Li4 = models.BooleanField(
+        verbose_name='Включить пункт',
+        default=True,
+    )
+    PricingUl3Li5 = models.CharField(
+        verbose_name='Изменить текст пятого пункта третий колонки',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    PricingCheckUl3Li5 = models.BooleanField(
+        verbose_name='Включить пункт',
+        default=True,
+    )
+    PricingUl1bBtn3 = models.CharField(
+        verbose_name='Изменить текст кнопки третий колонки',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+
+    def __str__(self):
+        return self.PricingH3
+
+
 class team(models.Model):
     PhotoTeam = models.ImageField(
         verbose_name='Фото сотрудника',
@@ -471,7 +741,6 @@ class GenericAsk(models.Model):
         blank=True,
         null=True,
     )
-
 
     def __str__(self):
         return self.GenericAskLi
