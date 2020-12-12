@@ -20,13 +20,12 @@ class nav(models.Model):
         max_length=400,
         unique=True,
     )
-    
+
     def __str__(self):
         return self.nav
 
 
-
-class hero(models.Model):    
+class hero(models.Model):
     TopFirstH1 = models.CharField(
         verbose_name='Изменить текст первого H1',
         max_length=150,
@@ -159,6 +158,7 @@ class hero(models.Model):
 
     def __str__(self):
         return self.TopFirstH1
+
 
 class AboutSection(models.Model):
     AboutSectionH2 = models.CharField(
@@ -465,6 +465,7 @@ class CtaSection(models.Model):
     def __str__(self):
         return self.CtaH3
 
+
 class Jobcategory(models.Model):
     JobCategoryName = models.CharField(
         verbose_name='Имя категории',
@@ -478,6 +479,24 @@ class Jobcategory(models.Model):
 
     def __str__(self):
         return self.JobCategoryName
+
+
+class JobText(models.Model):
+    JobTextH3 = models.CharField(
+        verbose_name='Изменить заговолок',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    JobTextP = models.TextField(
+        verbose_name='Текст под заговолком',
+        blank=True,
+        null=True
+    )
+
+    def __str__(self):
+        return self.JobTextH3
+
 
 class MyJob(models.Model):
     MyJobProductTitle = models.CharField(
@@ -565,12 +584,10 @@ class MyJob(models.Model):
 
     def get_absolute_url(self):
         return reverse('CardApp:MyJobView', kwargs={'slug': self.slug})
-        
 
     def save(self, *args, **kwargs):
         self.slug = translit.slugify(self.MyJobProductTitle)
         super(MyJob, self).save(*args, **kwargs)
-    
 
     def __str__(self):
         return self.MyJobProductTitle
@@ -592,7 +609,7 @@ class pricing(models.Model):
         verbose_name='Изменить текст блока',
         blank=True,
         null=True,
-    )    
+    )
     PricingTitleColumn1 = models.CharField(
         verbose_name='Изменить название первой колонки',
         max_length=150,
@@ -605,13 +622,13 @@ class pricing(models.Model):
         choices=CurrencyList,
         blank=True,
         null=True,
-    )    
+    )
     PricingPriceColumn1 = models.DecimalField(
         verbose_name='Изменить цену первой колонки',
         max_digits=10,
         decimal_places=2,
         null=True,
-    )    
+    )
     PricingPriceColumn1 = models.DecimalField(
         verbose_name='Изменить цену первой колонки',
         max_digits=10,
@@ -862,6 +879,23 @@ class pricing(models.Model):
         return self.PricingH3
 
 
+class TeamText(models.Model):
+    TeamTextH3 = models.CharField(
+        verbose_name='Изменить заговолок',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    TeamTextP = models.TextField(
+        verbose_name='Текст под заговолком',
+        blank=True,
+        null=True
+    )
+
+    def __str__(self):
+        return self.TeamTextH3
+
+
 class team(models.Model):
     PhotoTeam = models.ImageField(
         verbose_name='Фото сотрудника',
@@ -917,3 +951,54 @@ class GenericAsk(models.Model):
 
     def __str__(self):
         return self.GenericAskLi
+
+
+class contact(models.Model):
+    ContactH3 = models.CharField(
+        verbose_name='Изменить заговолок',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    ContactP = models.TextField(
+        verbose_name='Текст под заговолком',
+        blank=True,
+        null=True
+    )
+    LocationTitle = models.CharField(
+        verbose_name='Изменить название пункта локакция',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    location = models.CharField(
+        verbose_name='Изменить локакцию',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    EmailTitle = models.CharField(
+        verbose_name='Изменить название пункта почта',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    Email = models.EmailField(
+        verbose_name='Ваша почта',
+        max_length=254,
+    )
+    CallTitle = models.CharField(
+        verbose_name='Изменить название пункта телефон',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    call = models.CharField(
+        verbose_name='Ваш телефон',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+
+    def __str__(self):
+        return 'почта {} телефон {}'.format(self.Email, self.call)

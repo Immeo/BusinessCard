@@ -21,8 +21,11 @@ class navListView(ListView):
         context['team'] = team.objects.all()
         context['QuestionsSectionText'] = QuestionsSectionText.objects.all()
         context['GenericAsk'] = GenericAsk.objects.all()
+        context['TeamText'] = TeamText.objects.all()
+        context['JobText'] = JobText.objects.all()
         context['Jobcategory'] = Jobcategory.objects.all()
         context['MyJob'] = MyJob.objects.all()
+        context['contact'] = contact.objects.all()
         return context
 
 
