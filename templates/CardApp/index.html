@@ -1,71 +1,9 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'CardApp/base.html' %}
+{% load static %} 
 
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+{% block content %}
 
-  <title>OnePage Bootstrap Template - Index</title>
-  <meta content="" name="descriptison">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="{% static 'img/favicon.png' %}" rel="icon">
-  <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
-
-  <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-    rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-  <link href="{% static 'vendor/icofont/icofont.min.css' %}" rel="stylesheet">
-  <link href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
-  <link href="{% static 'vendor/remixicon/remixicon.css' %}" rel="stylesheet">
-  <link href="{% static 'vendor/venobox/venobox.css' %}" rel="stylesheet">
-  <link href="{% static 'vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
-  <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="{% static 'css/style.css' %}" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: OnePage - v2.1.0
-  * Template URL: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-</head>
-
-<body>
-  {% for text in object_list %}
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top">
-    <div class="container d-flex align-items-center">
-
-      <h1 class="logo mr-auto"><a href="index.html">OnePage</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo mr-auto"><img src="{% static '/img/logo.png" alt' %}="" class="img-fluid"></a>-->
-
-      <nav class="nav-menu d-none d-lg-block">
-        <ul>
-          <li class="active"><a href="index.html">{{text.TopLiNav1}}</a></li>
-          <li><a href="#about">{{text.TopLiNav2}}</a></li>
-          <li><a href="#services">{{text.TopLiNav3}}</a></li>
-          <li><a href="#portfolio">{{text.TopLiNav4}}</a></li>
-          <li><a href="#team">{{text.TopLiNav5}}</a></li>
-          <li><a href="#pricing">{{text.TopLiNav6}}</a></li>
-          <li><a href="#contact">{{text.TopLiNav7}}</a></li>
-
-        </ul>
-      </nav><!-- .nav-menu -->
-
-      <a href="#about" class="get-started-btn scrollto">Get Started</a>
-
-    </div>
-  </header><!-- End Header -->
+{% for text in hero %}
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
@@ -116,37 +54,37 @@
       </div>
     </div>
   </section><!-- End Hero -->
-
+  {% endfor %}
   <main id="main">
 
-    {% for text in AboutSection %}
+
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>{{text.AboutSectionH2}}</h2>
-          <p>{{text.AboutSectionP}} </p>
+          <h2>{{AboutSection.0.AboutSectionH2}}</h2>
+          <p>{{AboutSection.0.AboutSectionP}} </p>
         </div>
 
         <div class="row content">
           <div class="col-lg-6">
-            <p>{{text.AboutSectionTextArea1}}</p>
+            <p>{{AboutSection.0.AboutSectionTextArea1}}</p>
             <ul>
-              <li><i class="ri-check-double-line"></i> {{text.AboutLi1}}</li>
-              <li><i class="ri-check-double-line"></i> {{text.AboutLi2}}</li>
-              <li><i class="ri-check-double-line"></i> {{text.AboutLi3}}</li>
+              <li><i class="ri-check-double-line"></i> {{AboutSection.0.AboutLi1}}</li>
+              <li><i class="ri-check-double-line"></i> {{AboutSection.0.AboutLi2}}</li>
+              <li><i class="ri-check-double-line"></i> {{AboutSection.0.AboutLi3}}</li>
             </ul>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
-            <p>{{text.AboutSectionTextArea2}}</p>
-            <a href="#" class="btn-learn-more">{{text.AboutButton}}</a>
+            <p>{{AboutSection.0.AboutSectionTextArea2}}</p>
+            <a href="#" class="btn-learn-more">{{AboutSection.0.AboutButton}}</a>
           </div>
         </div>
 
       </div>
     </section><!-- End About Section -->
-    {% endfor %}
+    
 
     {% for text in CountsSection %}
     <!-- ======= CountsSection ======= -->
@@ -396,7 +334,7 @@
     <section id="cta" class="cta">
       <div class="container" data-aos="zoom-in">
         <div class="text-center">
-          <h3>{{CtaText.H3}}</h3>
+          <h3>{{CtaText.CtaH3}}</h3>
           <p> {{CtaText.CtaP}}</p>
           <a class="cta-btn" href="#">{{CtaText.CtaBtn}}</a>
         </div>
@@ -413,159 +351,39 @@
             consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit
             in iste officiis commodi quidem hic quas.</p>
         </div>
-
         <div class="row" data-aos="fade-up" data-aos-delay="150">
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="portfolio-flters">
               <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">App</li>
-              <li data-filter=".filter-card">Card</li>
-              <li data-filter=".filter-web">Web</li>
+
+              {% for CategoryItem in Jobcategory %}
+              <li data-filter=".filter-{{CategoryItem.JobCategoryName}}">{{CategoryItem.JobCategoryName}}</li>
+              {% endfor %}
+              <li>{{Jobcategory.JobCategoryName}}</li>
             </ul>
           </div>
         </div>
-
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="300">
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          {% for port in MyJob %}
+          <div class="col-lg-4 col-md-6 portfolio-item filter-{{port.MyJobJobCategory}}">
             <div class="portfolio-wrap">
-              <img src="{% static '/img/portfolio/portfolio-1.jpg' %}" class="img-fluid" alt="">
+              <img src="{{port.MyJobImage1.url}}" class="img-fluid" alt="">
               <div class="portfolio-info">
-                <h4>App 1</h4>
-                <p>App</p>
+                <h4>{{port.MyJobProductTitle}}</h4>
+                <p>{{port.MyJobJobCategory}}</p>
                 <div class="portfolio-links">
-                  <a href="{% static '/img/portfolio/portfolio-1.jpg' %}" data-gall="portfolioGallery" class="venobox"
-                    title="App 1"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                  <a href="{{port.MyJobImage1.url}}" data-gall="portfolioGallery" class="venobox" title="App 1"><i
+                      class="bx bx-plus"></i></a>
+                  <a href="{{port.get_absolute_url}}" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
             </div>
           </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="{% static '/img/portfolio/portfolio-2.jpg' %}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Web 3</h4>
-                <p>Web</p>
-                <div class="portfolio-links">
-                  <a href="{% static '/img/portfolio/portfolio-2.jpg' %}" data-gall="portfolioGallery" class="venobox"
-                    title="Web 3"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="{% static '/img/portfolio/portfolio-3.jpg' %}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>App 2</h4>
-                <p>App</p>
-                <div class="portfolio-links">
-                  <a href="{% static '/img/portfolio/portfolio-3.jpg' %}" data-gall="portfolioGallery" class="venobox"
-                    title="App 2"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="{% static '/img/portfolio/portfolio-4.jpg' %}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Card 2</h4>
-                <p>Card</p>
-                <div class="portfolio-links">
-                  <a href="{% static '/img/portfolio/portfolio-4.jpg' %}" data-gall="portfolioGallery" class="venobox"
-                    title="Card 2"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="{% static '/img/portfolio/portfolio-5.jpg' %}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Web 2</h4>
-                <p>Web</p>
-                <div class="portfolio-links">
-                  <a href="{% static '/img/portfolio/portfolio-5.jpg' %}" data-gall="portfolioGallery" class="venobox"
-                    title="Web 2"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="{% static '/img/portfolio/portfolio-6.jpg' %}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>App 3</h4>
-                <p>App</p>
-                <div class="portfolio-links">
-                  <a href="{% static '/img/portfolio/portfolio-6.jpg' %}" data-gall="portfolioGallery" class="venobox"
-                    title="App 3"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="{% static '/img/portfolio/portfolio-7.jpg' %}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Card 1</h4>
-                <p>Card</p>
-                <div class="portfolio-links">
-                  <a href="{% static '/img/portfolio/portfolio-7.jpg' %}" data-gall="portfolioGallery" class="venobox"
-                    title="Card 1"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="{% static '/img/portfolio/portfolio-8.jpg' %}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Card 3</h4>
-                <p>Card</p>
-                <div class="portfolio-links">
-                  <a href="{% static '/img/portfolio/portfolio-8.jpg' %}" data-gall="portfolioGallery" class="venobox"
-                    title="Card 3"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="{% static '/img/portfolio/portfolio-9.jpg' %}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Web 3</h4>
-                <p>Web</p>
-                <div class="portfolio-links">
-                  <a href="{% static '/img/portfolio/portfolio-9.jpg' %}" data-gall="portfolioGallery" class="venobox"
-                    title="Web 3"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
+          {% endfor %}
         </div>
 
       </div>
-    </section><!-- End Portfolio Section -->
+    </section><!-- End Portfolio Section -->1
 
     <!-- ======= Team Section ======= -->
     <section id="team" class="team section-bg">
@@ -613,33 +431,33 @@
 
           <div class="col-lg-4 col-md-6" data-aos="zoom-im" data-aos-delay="100">
             <div class="box">
-              <h3>{{pricing_text.PricingTittleColumn1}}</h3>
+              <h3>{{pricing_text.PricingTitleColumn1}}</h3>
               <h4><sup>{{pricing_text.PricingCurrencyColumn1}}</sup>{{pricing_text.PricingPriceColumn1}}<span> /
                   {{pricing_text.PricingMonthColumn1}}</span></h4>
               <ul>
                 {% if pricing_text.PricingCheckUl1Li1 == True %}
                 <li>{{pricing_text.PricingUl1Li1}}</li>
-                {% elif pricing_text.PricingCheckUl1Li1 == False %}
+                {% else %}
                 <li class="na">{{pricing_text.PricingUl1Li1}}</li>
                 {% endif %}
                 {% if pricing_text.PricingCheckUl1Li2 == True %}
                 <li>{{pricing_text.PricingUl1Li2}}</li>
-                {% elif pricing_text.PricingCheckUl1Li2 == False %}
+                {% else %}
                 <li class="na">{{pricing_text.PricingUl1Li2}}</li>
                 {% endif %}
                 {% if pricing_text.PricingCheckUl1Li3 == True %}
                 <li>{{pricing_text.PricingUl1Li3}}</li>
-                {% elif pricing_text.PricingCheckUl1Li3 == False %}
+                {% else %}
                 <li class="na">{pricing_text.PricingUl1Li3}</li>
                 {% endif %}
                 {% if pricing_text.PricingCheckUl1Li4 == True %}
                 <li>{{pricing_text.PricingUl1Li4}}</li>
-                {% elif pricing_text.PricingCheckUl1Li4 == False %}
+                {% else %}
                 <li class="na">{{pricing_text.PricingUl1Li4}}</li>
                 {% endif %}
                 {% if pricing_text.PricingCheckUl1Li5 == True %}
                 <li>{{pricing_text.PricingUl1Li5}}</li>
-                {% elif pricing_text.PricingCheckUl1Li5 == False %}
+                {% else %}
                 <li class="na">{{pricing_text.PricingUl1Li5}}</li>
                 {% endif %}
               </ul>
@@ -651,33 +469,33 @@
 
           <div class="col-lg-4 col-md-6 mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="100">
             <div class="box featured">
-              <h3>{{pricing_text.PricingTittleColumn2}}</h3>
+              <h3>{{pricing_text.PricingTitleColumn2}}</h3>
               <h4><sup>{{pricing_text.PricingCurrencyColumn2}}</sup>{{pricing_text.PricingPriceColumn2}}<span> /
                   {{pricing_text.PricingMonthColumn2}}</span></h4>
               <ul>
                 {% if pricing_text.PricingCheckUl2Li1 == True %}
                 <li>{{pricing_text.PricingUl2Li1}}</li>
-                {% elif pricing_text.PricingCheckU2Li1 == False %}
+                {% else %}
                 <li class="na">{{pricing_text.PricingUl2Li1}}</li>
                 {% endif %}
                 {% if pricing_text.PricingCheckUl2Li2 == True %}
                 <li>{{pricing_text.PricingUl2Li2}}</li>
-                {% elif pricing_text.PricingCheckUl2Li2 == False %}
+                {% else %}
                 <li class="na">{{pricing_text.PricingUl2Li2}}</li>
                 {% endif %}
                 {% if pricing_text.PricingCheckUl2Li3 == True %}
                 <li>{{pricing_text.PricingUl2Li3}}</li>
-                {% elif pricing_text.PricingCheckUl2Li3 == False %}
+                {% else %}
                 <li class="na">{{pricing_text.PricingUl2Li3}}</li>
                 {% endif %}
                 {% if pricing_text.PricingCheckUl2Li4 == True %}
                 <li>{{pricing_text.PricingUl2Li4}}</li>
-                {% elif pricing_text.PricingCheckUl2Li4 == False %}
+                {% else %}
                 <li class="na">{{pricing_text.PricingUl2Li4}}</li>
                 {% endif %}
                 {% if pricing_text.PricingCheckUl2Li5 == True %}
                 <li>{{pricing_text.PricingUl2Li5}}</li>
-                {% elif pricing_text.PricingCheckUl2Li5 == False %}
+                {% else %}
                 <li class="na">{{pricing_text.PricingUl2Li5}}</li>
                 {% endif %}
               </ul>
@@ -689,33 +507,33 @@
 
           <div class="col-lg-4 col-md-6 mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="100">
             <div class="box">
-              <h3>{{pricing_text.PricingTittleColumn3}}</h3>
+              <h3>{{pricing_text.PricingTitleColumn3}}</h3>
               <h4><sup>{{pricing_text.PricingCurrencyColumn3}}</sup>{{pricing_text.PricingPriceColumn3}}<span> /
                   {{pricing_text.PricingMonthColumn3}}</span></h4>
               <ul>
                 {% if pricing_text.PricingCheckUl3Li3 == True %}
                 <li>{{pricing_text.PricingUl3Li3}}</li>
-                {% elif pricing_text.PricingCheckUl3Li3 == False %}
+                {% else %}
                 <li class="na">{{pricing_text.PricingUl3Li3}}</li>
                 {% endif %}
                 {% if pricing_text.PricingCheckUl3Li2 == True %}
                 <li>{{pricing_text.PricingUl3Li2}}</li>
-                {% elif pricing_text.PricingCheckUl3Li2 == False %}
+                {% else %}
                 <li class="na">{{pricing_text.PricingUl3Li2}}</li>
                 {% endif %}
                 {% if pricing_text.PricingCheckUl3Li3 == True %}
                 <li>{{pricing_text.PricingUl3Li3}}</li>
-                {% elif pricing_text.PricingCheckUl3Li2 == False %}
+                {% else %}
                 <li class="na">{pricing_text.PricingUl3Li3}</li>
                 {% endif %}
                 {% if pricing_text.PricingCheckUl3Li4 == True %}
                 <li>{{pricing_text.PricingUl3Li4}}</li>
-                {% elif pricing_text.PricingCheckUl3Li4 == False %}
+                {% else %}
                 <li class="na">{{pricing_text.PricingUl3Li4}}</li>
                 {% endif %}
                 {% if pricing_text.PricingCheckUl3Li5 == True %}
                 <li>pricing_text.PricingUl3Li5</li>
-                {% elif pricing_text.PricingCheckUl3Li5 == False %}
+                {% else %}
                 <li class="na">{{pricing_text.PricingUl3Li5}}</li>
                 {% endif %}
                 <div class="btn-wrap">
@@ -745,9 +563,13 @@
             {% for gen_text in GenericAsk %}
             <li data-aos="fade-up">
               <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" class="collapse"
-                href="#faq-list-1">{{gen_text.GenericAskLi}} <i class="bx bx-chevron-down icon-show"></i><i
-                  class="bx bx-chevron-up icon-close"></i></a>
-              <div id="faq-list-1" class="collapse show" data-parent=".faq-list">
+                href="#faq-list-{{gen_text.id}}">{{gen_text.GenericAskLi}} <i
+                  class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-{{gen_text.id}}" class="collapse 
+              {% if forloop.counter == 1 %}
+                show
+              {% endif %}
+              " data-parent=".faq-list">
                 <p>{{gen_text.GenericAskP}}</p>
               </div>
             </li>
@@ -840,103 +662,4 @@
 
       </div>
     </section><!-- End Contact Section -->
-
-  </main><!-- End #main -->
-
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-
-    <div class="footer-top">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>OnePage</h3>
-            <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br><br>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> info@example.com<br>
-            </p>
-          </div>
-
-          <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Services</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>Join Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="container d-md-flex py-4">
-
-      <div class="mr-md-auto text-center text-md-left">
-        <div class="copyright">
-          &copy; Copyright <strong><span>OnePage</span></strong>. All Rights Reserved
-        </div>
-        <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/ -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-        </div>
-      </div>
-      <div class="social-links text-center text-md-right pt-3 pt-md-0">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-      </div>
-    </div>
-  </footer><!-- End Footer -->
-  {% endfor %}
-  <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
-  <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
-  <script src="{% static '/vendor/jquery/jquery.min.js' %}"></script>
-  <script src="{% static '/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-  <script src="{% static '/vendor/jquery.easing/jquery.easing.min.js' %}"></script>
-  <script src="{% static '/vendor/php-email-form/validate.js' %}"></script>
-  <script src="{% static '/vendor/waypoints/jquery.waypoints.min.js' %}"></script>
-  <script src="{% static '/vendor/counterup/counterup.min.js' %}"></script>
-  <script src="{% static '/vendor/venobox/venobox.min.js' %}"></script>
-  <script src="{% static '/vendor/owl.carousel/owl.carousel.min.js' %}"></script>
-  <script src="{% static '/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
-  <script src="{% static '/vendor/aos/aos.js' %}"></script>
-
-  <!-- Template Main JS File -->
-  <script src="{% static '/js/main.js' %}"></script>
-
-</body>
-
-</html>
+{% endblock content %}

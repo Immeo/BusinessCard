@@ -1,52 +1,32 @@
 from django.db import models
-
+from pytils import translit
+from django.utils.datetime_safe import date
+from django.urls import reverse
+from django.utils.text import slugify
+# from django.utils.translation import ugettext_lazy as _
 
 # Create your models here.
 
 
-class TopNavAndHero(models.Model):
-    TopLiNav1 = models.CharField(
+class nav(models.Model):
+    nav = models.CharField(
         verbose_name='Изменить текст пункта меню 1',
         max_length=150,
         blank=True,
         null=True,
     )
-    TopLiNav2 = models.CharField(
-        verbose_name='Изменить текст пункта меню 2',
-        max_length=150,
-        blank=True,
-        null=True,
+    SlugNav = models.CharField(
+        verbose_name='Ссылка или якорь пункта меню',
+        max_length=400,
+        unique=True,
     )
-    TopLiNav3 = models.CharField(
-        verbose_name='Изменить текст пункта меню 3',
-        max_length=150,
-        blank=True,
-        null=True,
-    )
-    TopLiNav4 = models.CharField(
-        verbose_name='Изменить текст пункта меню 4',
-        max_length=150,
-        blank=True,
-        null=True,
-    )
-    TopLiNav5 = models.CharField(
-        verbose_name='Изменить текст пункта меню 5',
-        max_length=150,
-        blank=True,
-        null=True,
-    )
-    TopLiNav6 = models.CharField(
-        verbose_name='Изменить текст пункта меню 6',
-        max_length=150,
-        blank=True,
-        null=True,
-    )
-    TopLiNav7 = models.CharField(
-        verbose_name='Изменить текст пункта меню 7',
-        max_length=150,
-        blank=True,
-        null=True,
-    )
+    
+    def __str__(self):
+        return self.nav
+
+
+
+class hero(models.Model):    
     TopFirstH1 = models.CharField(
         verbose_name='Изменить текст первого H1',
         max_length=150,
@@ -113,7 +93,72 @@ class TopNavAndHero(models.Model):
 
     def __str__(self):
         return self.TopFirstH1
+    TopFirstH1 = models.CharField(
+        verbose_name='Изменить текст первого H1',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    TopFirstH2 = models.CharField(
+        verbose_name='Изменить текст первого H2',
+        default='Ваш текст',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    GetStartedBtn = models.CharField(
+        verbose_name='Изменить текст первой кнопки',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    TopCardBlockTitle1 = models.CharField(
+        verbose_name='Изменить название первого карт блока',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    TopCardBlockText1 = models.TextField(
+        verbose_name='Изменить текст первого карт блока',
+        blank=True,
+        null=True,
+    )
+    TopCardBlockTitle2 = models.CharField(
+        verbose_name='Изменить название второго карт блока',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    TopCardBlockText2 = models.TextField(
+        verbose_name='Изменить текст второго карт блока',
+        blank=True,
+        null=True,
+    )
+    TopCardBlockTitle3 = models.CharField(
+        verbose_name='Изменить название третьего карт блока',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    TopCardBlockText3 = models.TextField(
+        verbose_name='Изменить текст третьего карт блока',
+        blank=True,
+        null=True,
+    )
+    TopCardBlockTitle4 = models.CharField(
+        verbose_name='Изменить название четвертого карт блока',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    TopCardBlockText4 = models.TextField(
+        verbose_name='Изменить текст четвертого карт блока',
+        blank=True,
+        null=True,
+    )
 
+    def __str__(self):
+        return self.TopFirstH1
 
 class AboutSection(models.Model):
     AboutSectionH2 = models.CharField(
@@ -420,6 +465,116 @@ class CtaSection(models.Model):
     def __str__(self):
         return self.CtaH3
 
+class Jobcategory(models.Model):
+    JobCategoryName = models.CharField(
+        verbose_name='Имя категории',
+        max_length=150,
+    )
+    urs = models.SlugField(
+        verbose_name='Ссылка категории',
+        max_length=400,
+        unique=True,
+    )
+
+    def __str__(self):
+        return self.JobCategoryName
+
+class MyJob(models.Model):
+    MyJobProductTitle = models.CharField(
+        verbose_name='Название продукта',
+        default='продукт',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    MyJobJobCategoryTitle = models.CharField(
+        verbose_name='Название пункта категория',
+        default='категория',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    MyJobJobCategory = models.ForeignKey(
+        Jobcategory,
+        on_delete=models.PROTECT,
+        verbose_name='Выберите категорию',
+    )
+    MyJobClientTitle = models.CharField(
+        verbose_name='Названия пункта клиент',
+        default=' клиент',
+        max_length=200,
+        blank=True,
+        null=True,
+    )
+    MyJobClient = models.CharField(
+        verbose_name='Имя или названия клиента',
+        max_length=200,
+        blank=True,
+        null=True,
+    )
+    MyJobDateTitle = models.CharField(
+        verbose_name='Названия пункта дата создания',
+        default='дата создания',
+        max_length=200,
+        blank=True,
+        null=True,
+    )
+    MyJobDate = models.DateField(
+        verbose_name='дата создания проекта',
+        default=date.today,
+        unique=False,
+        unique_for_date=False,
+    )
+    MyJobH2 = models.CharField(
+        verbose_name='Заглавие продукта',
+        max_length=150,
+        blank=True,
+        null=True
+    )
+    MyJobDescription = models.TextField(
+        verbose_name='описание продукта',
+        blank=True,
+        null=True,
+    )
+    MyJobImage1 = models.ImageField(
+        verbose_name='Загрузить главную картинки',
+        upload_to='More'
+    )
+    MyJobImage2 = models.ImageField(
+        verbose_name='Загрузить вторую картинки',
+        upload_to='More'
+    )
+    MyJobImage3 = models.ImageField(
+        verbose_name='Загрузить третью картинки',
+        upload_to='More'
+    )
+    MyJobUrlTitle = models.CharField(
+        verbose_name='Изменить название пункта ссылка на продукт',
+        default='ссылка на продукт',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    slug = models.SlugField(
+        verbose_name='Ссылка на работу',
+        max_length=200,
+        default='TextTitle',
+        help_text='Ссылка создается автоматически из названия продукта',
+        unique=True
+    )
+
+    def get_absolute_url(self):
+        return reverse('CardApp:MyJobView', kwargs={'slug': self.slug})
+        
+
+    def save(self, *args, **kwargs):
+        self.slug = translit.slugify(self.MyJobProductTitle)
+        super(MyJob, self).save(*args, **kwargs)
+    
+
+    def __str__(self):
+        return self.MyJobProductTitle
+
 
 class pricing(models.Model):
     CurrencyList = (
@@ -438,7 +593,7 @@ class pricing(models.Model):
         blank=True,
         null=True,
     )    
-    PricingTittleColumn1 = models.CharField(
+    PricingTitleColumn1 = models.CharField(
         verbose_name='Изменить название первой колонки',
         max_length=150,
         blank=True,
@@ -449,6 +604,12 @@ class pricing(models.Model):
         max_length=150,
         choices=CurrencyList,
         blank=True,
+        null=True,
+    )    
+    PricingPriceColumn1 = models.DecimalField(
+        verbose_name='Изменить цену первой колонки',
+        max_digits=10,
+        decimal_places=2,
         null=True,
     )    
     PricingPriceColumn1 = models.DecimalField(
@@ -520,7 +681,7 @@ class pricing(models.Model):
         blank=True,
         null=True,
     )
-    PricingTittleColumn2 = models.CharField(
+    PricingTitleColumn2 = models.CharField(
         verbose_name='Изменить название второй колонки',
         max_length=150,
         blank=True,
@@ -531,6 +692,12 @@ class pricing(models.Model):
         max_length=150,
         choices=CurrencyList,
         blank=True,
+        null=True,
+    )
+    PricingPriceColumn2 = models.DecimalField(
+        verbose_name='Изменить цену второй колонки',
+        max_digits=10,
+        decimal_places=2,
         null=True,
     )
     PricingPriceColumn2 = models.DecimalField(
@@ -602,7 +769,7 @@ class pricing(models.Model):
         blank=True,
         null=True,
     )
-    PricingTittleColumn3 = models.CharField(
+    PricingTitleColumn3 = models.CharField(
         verbose_name='Изменить название третий колонки',
         max_length=150,
         blank=True,
@@ -613,6 +780,12 @@ class pricing(models.Model):
         max_length=150,
         choices=CurrencyList,
         blank=True,
+        null=True,
+    )
+    PricingPriceColumn3 = models.DecimalField(
+        verbose_name='Изменить цену третий колонки',
+        max_digits=10,
+        decimal_places=2,
         null=True,
     )
     PricingPriceColumn3 = models.DecimalField(
