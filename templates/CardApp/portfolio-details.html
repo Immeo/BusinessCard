@@ -38,7 +38,16 @@
             <li><strong>{{object.MyJobJobCategoryTitle}}</strong>: {{object.MyJobJobCategory}}</li>
             <li><strong>{{object.MyJobClientTitle}}</strong>: {{object.MyJobClient}}</li>
             <li><strong>{{object.MyJobDateTitle}}</strong>: {{object.MyJobDate}}</li>
-            <li><strong>{{object.MyJobUrlTitle}}</strong>: <a href="#">{{object.get_absolute_url}}</a></li>
+            
+            {% if object.CheckLink == True %}
+            <li><strong>{{object.MyJobUrlTitle}}</strong>: <a
+                href="{{object.ExternalLink}}">{{object.ExternalLink}}</a></li>
+            {% else %}
+            <li><strong>{{object.MyJobUrlTitle}}</strong>: <a
+                href="{{object.get_absolute_url}}">{{object.get_absolute_url}}</a></li>
+              
+            {% endif %}
+              
           </ul>
         </div>
 

@@ -1,4 +1,10 @@
+from django.views.generic.edit import FormMixin
 from django.views.generic import ListView, DetailView
+from django.views.generic.edit import FormView
+from django.conf import settings
+from django.core.mail import send_mail, BadHeaderError
+from BusinessCard.settings import RECIPIENTS_EMAIL, DEFAULT_FROM_EMAIL
+from .forms import SendForm
 from .models import *
 # Create your views here.
 
@@ -26,7 +32,31 @@ class navListView(ListView):
         context['Jobcategory'] = Jobcategory.objects.all()
         context['MyJob'] = MyJob.objects.all()
         context['contact'] = contact.objects.all()
+        context['SendForm'] = SendForm()
         return context
+
+
+class SendFormView(FormView):
+
+    form_class = SendForm
+    template_name = "CardApp/email_form.html"
+    context_object_name = 'SendForm'
+    success_url = 's'
+
+# this is what you want
+    def form_valid(self, form):
+        message = "{name} / {email} said: ".format(
+            name=form.cleaned_data.get('name'),
+            email=form.cleaned_data.get('email'))
+        message += "\n\n{0}".format(form.cleaned_data.get('message'))
+        send_mail(
+            subject=form.cleaned_data.get('subject').strip(),
+            message=message,
+            from_email='evgenvolk158@gmail.com',
+            recipient_list=["evgenvolk158@gmail.com"],
+            fail_silently=False,
+        )
+        return super(SendFormView, self).form_valid(form)
 
 
 class MyJobView(DetailView):

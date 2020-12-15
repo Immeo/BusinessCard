@@ -506,6 +506,23 @@ class MyJob(models.Model):
         blank=True,
         null=True,
     )
+    slug = models.SlugField(
+        verbose_name='Ссылка на работу',
+        max_length=200,
+        default='TextTitle',
+        help_text='Ссылка создается автоматически из названия продукта',
+        unique=True
+    )
+    CheckLink = models.BooleanField(
+        verbose_name='Поставьте эту галочку, если хотите добавить ссыльку на работу на внешнем сайте',
+        default=False,
+    )
+    ExternalLink = models.CharField(
+        verbose_name='Внешная ссылька на работу',
+        max_length=250,
+        blank=True,
+        null=True,
+    )
     MyJobJobCategoryTitle = models.CharField(
         verbose_name='Название пункта категория',
         default='категория',
@@ -513,6 +530,13 @@ class MyJob(models.Model):
         blank=True,
         null=True,
     )
+    MyJobUrlTitle = models.CharField(
+        verbose_name='Изменить название пункта ссылка на продукт',
+        default='ссылка на продукт',
+        max_length=150,
+        blank=True,
+        null=True,
+    )    
     MyJobJobCategory = models.ForeignKey(
         Jobcategory,
         on_delete=models.PROTECT,
@@ -573,13 +597,6 @@ class MyJob(models.Model):
         max_length=150,
         blank=True,
         null=True,
-    )
-    slug = models.SlugField(
-        verbose_name='Ссылка на работу',
-        max_length=200,
-        default='TextTitle',
-        help_text='Ссылка создается автоматически из названия продукта',
-        unique=True
     )
 
     def get_absolute_url(self):
