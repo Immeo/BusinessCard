@@ -1,3 +1,4 @@
+from django.shortcuts import redirect
 from django.views.generic.edit import FormMixin
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import FormView
@@ -42,6 +43,8 @@ class SendFormView(FormView):
     template_name = "CardApp/email_form.html"
     context_object_name = 'SendForm'
     success_url = 's'
+
+    
 
 # this is what you want
     def form_valid(self, form):

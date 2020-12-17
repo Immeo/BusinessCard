@@ -56,33 +56,13 @@
     </div>
   </section><!-- End Hero -->
   {% endfor %}
-  <main id="main">
+  <section id="main">
 
 
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
       <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>{{AboutSection.0.AboutSectionH2}}</h2>
-          <p>{{AboutSection.0.AboutSectionP}} </p>
-        </div>
-
-        <div class="row content">
-          <div class="col-lg-6">
-            <p>{{AboutSection.0.AboutSectionTextArea1}}</p>
-            <ul>
-              <li><i class="ri-check-double-line"></i> {{AboutSection.0.AboutLi1}}</li>
-              <li><i class="ri-check-double-line"></i> {{AboutSection.0.AboutLi2}}</li>
-              <li><i class="ri-check-double-line"></i> {{AboutSection.0.AboutLi3}}</li>
-            </ul>
-          </div>
-          <div class="col-lg-6 pt-4 pt-lg-0">
-            <p>{{AboutSection.0.AboutSectionTextArea2}}</p>
-            <a href="#" class="btn-learn-more">{{AboutSection.0.AboutButton}}</a>
-          </div>
-        </div>
-
+        {{AboutSection.0.AboutSectionP|safe}}
       </div>
     </section><!-- End About Section -->
     
@@ -127,38 +107,24 @@
       </div>
     </section><!-- End Counts Section -->
     {% endfor %}
-
     {% for generic_AboutVideoSection in AboutVideoSection %}
-    <!-- ======= About Video Section ======= -->
     <section id="about-video" class="about-video">
-      <div class="container" data-aos="fade-up">
-        <div class="row">
-          <div class="col-lg-6 video-box align-self-baseline" data-aos="fade-right" data-aos-delay="100">
-            <img src="{{generic_AboutVideoSection.AboutVideoSectionPlug.url}}" class="img-fluid" alt="">
-            <a href="{{generic_AboutVideoSection.AboutVideoSectionUrl}}" class="venobox play-btn mb-4"
-              data-vbtype="video" data-autoplay="true"></a>
-          </div>
-          <div class="col-lg-6 pt-3 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
-            <h3>{{generic_AboutVideoSection.AboutVideoSectionH3}}</h3>
-            <p class="font-italic">{{generic_AboutVideoSection.AboutVideoSectionP}}</p>
-            <ul>
-              <li><i class="bx bx-check-double"></i>
-                {{generic_AboutVideoSection.AboutVideoSectionLi1}}</li>
-              <li><i class="bx bx-check-double"></i>
-                {{generic_AboutVideoSection.AboutVideoSectionLi2}}</li>
-              <li><i class="bx bx-check-double"></i>
-                {{generic_AboutVideoSection.AboutVideoSectionLi3}}
-              </li>
-              <li><i class="bx bx-check-double"></i>
-                {{generic_AboutVideoSection.AboutVideoSectionLi4}}</li>
-            </ul>
-            <p>{{generic_AboutVideoSection.AboutVideoSectionEndP}}</p>
-          </div>
-        </div>
-      </div>
-    </section><!-- End About Video Section -->
+        <div class="container" data-aos="fade-up">
+          <div class="row">
+            <div class="col-lg-6 video-box align-self-baseline" data-aos="fade-right" data-aos-delay="100">
+              <img src="{{generic_AboutVideoSection.AboutVideoSectionPlug.url}}" class="img-fluid" alt="">
+              <a href="{{generic_AboutVideoSection.AboutVideoSectionUrl}}" class="venobox play-btn mb-4"
+                data-vbtype="video" data-autoplay="true"></a>
+            </div>
+    <!-- ======= About Video Section ======= -->
+    <div class="col-lg-6 pt-3 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
+    {{generic_AboutVideoSection.AboutVideoSectionP|safe}}
     {% endfor %}
+    </div>
+            </div>
 
+            </div>
+    </section>
     <!-- ======= Clients Section ======= -->
     <section id="clients" class="clients section-bg">
       <div class="container">

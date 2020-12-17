@@ -3,6 +3,7 @@ from pytils import translit
 from django.utils.datetime_safe import date
 from django.urls import reverse
 from django.utils.text import slugify
+from ckeditor_uploader.fields import RichTextUploadingField
 # from django.utils.translation import ugettext_lazy as _
 
 # Create your models here.
@@ -161,45 +162,45 @@ class hero(models.Model):
 
 
 class AboutSection(models.Model):
-    AboutSectionH2 = models.CharField(
-        verbose_name='Изменить название тега h2 во второй секции',
-        max_length=150,
-        blank=True,
-        null=True,
-    )
+    # AboutSectionH2 = models.CharField(
+    #     verbose_name='Изменить название тега h2 во второй секции',
+    #     max_length=150,
+    #     blank=True,
+    #     null=True,
+    # )
     AboutSectionP = models.TextField(
         verbose_name='Изменить текст под тегом h2 во второй секции',
         blank=True,
         null=True,
     )
-    AboutSectionTextArea1 = models.TextField(
-        verbose_name='Изменить текст первой колонки во второй секции',
-        blank=True,
-        null=True,
-    )
-    AboutSectionTextArea2 = models.TextField(
-        verbose_name='Изменить текст второй колонки во второй секции',
-        blank=True,
-        null=True,
-    )
-    AboutLi1 = models.CharField(
-        verbose_name='Изменить текст пункта второго сектора 1',
-        max_length=150,
-        blank=True,
-        null=True,
-    )
-    AboutLi2 = models.CharField(
-        verbose_name='Изменить текст пункта второго сектора 2',
-        max_length=150,
-        blank=True,
-        null=True,
-    )
-    AboutLi3 = models.CharField(
-        verbose_name='Изменить текст пункта второго сектора 3',
-        max_length=150,
-        blank=True,
-        null=True,
-    )
+    # AboutSectionTextArea1 = models.TextField(
+    #     verbose_name='Изменить текст первой колонки во второй секции',
+    #     blank=True,
+    #     null=True,
+    # )
+    # AboutSectionTextArea2 = models.TextField(
+    #     verbose_name='Изменить текст второй колонки во второй секции',
+    #     blank=True,
+    #     null=True,
+    # )
+    # AboutLi1 = models.CharField(
+    #     verbose_name='Изменить текст пункта второго сектора 1',
+    #     max_length=150,
+    #     blank=True,
+    #     null=True,
+    # )
+    # AboutLi2 = models.CharField(
+    #     verbose_name='Изменить текст пункта второго сектора 2',
+    #     max_length=150,
+    #     blank=True,
+    #     null=True,
+    # )
+    # AboutLi3 = models.CharField(
+    #     verbose_name='Изменить текст пункта второго сектора 3',
+    #     max_length=150,
+    #     blank=True,
+    #     null=True,
+    # )
     AboutButton = models.CharField(
         verbose_name='Изменить текст кнопки второго сектора',
         max_length=150,
@@ -208,7 +209,7 @@ class AboutSection(models.Model):
     )
 
     def __str__(self):
-        return self.AboutSectionH2
+        return self.AboutButton
 
 
 class CountsSection(models.Model):
@@ -273,49 +274,49 @@ class AboutVideoSection(models.Model):
         blank=True,
         null=True,
     )
-    AboutVideoSectionH3 = models.CharField(
-        verbose_name='Изменить заговолок',
-        max_length=150,
-        blank=True,
-        null=True,
-    )
+    # AboutVideoSectionH3 = models.CharField(
+    #     verbose_name='Изменить заговолок',
+    #     max_length=150,
+    #     blank=True,
+    #     null=True,
+    # )
     AboutVideoSectionP = models.TextField(
         verbose_name='Текст под заговолком',
         blank=True,
         null=True
     )
-    AboutVideoSectionLi1 = models.CharField(
-        verbose_name='Изменить текст пункта 1',
-        max_length=150,
-        blank=True,
-        null=True,
-    )
-    AboutVideoSectionLi2 = models.CharField(
-        verbose_name='Изменить текст пункта 2',
-        max_length=150,
-        blank=True,
-        null=True,
-    )
-    AboutVideoSectionLi3 = models.CharField(
-        verbose_name='Изменить текст пункта 3',
-        max_length=150,
-        blank=True,
-        null=True,
-    )
-    AboutVideoSectionLi4 = models.CharField(
-        verbose_name='Изменить текст пункта 4',
-        max_length=150,
-        blank=True,
-        null=True,
-    )
-    AboutVideoSectionEndP = models.TextField(
-        verbose_name='Изменить текст в конце секции',
-        blank=True,
-        null=True
-    )
+    # AboutVideoSectionLi1 = models.CharField(
+    #     verbose_name='Изменить текст пункта 1',
+    #     max_length=150,
+    #     blank=True,
+    #     null=True,
+    # )
+    # AboutVideoSectionLi2 = models.CharField(
+    #     verbose_name='Изменить текст пункта 2',
+    #     max_length=150,
+    #     blank=True,
+    #     null=True,
+    # )
+    # AboutVideoSectionLi3 = models.CharField(
+    #     verbose_name='Изменить текст пункта 3',
+    #     max_length=150,
+    #     blank=True,
+    #     null=True,
+    # )
+    # AboutVideoSectionLi4 = models.CharField(
+    #     verbose_name='Изменить текст пункта 4',
+    #     max_length=150,
+    #     blank=True,
+    #     null=True,
+    # )
+    # AboutVideoSectionEndP = models.TextField(
+    #     verbose_name='Изменить текст в конце секции',
+    #     blank=True,
+    #     null=True
+    # )
 
     def __str__(self):
-        return self.AboutVideoSectionH3
+        return 'обьект {}'.format(self.pk,)
 
 
 class reviews(models.Model):

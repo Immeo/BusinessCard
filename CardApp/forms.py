@@ -2,9 +2,10 @@ from django import forms
 
 
 class SendForm(forms.Form):
-    name = forms.CharField(label='Имя',  required=True, )
-    email = forms.EmailField(label='Email',  required=True, )
-    subject = forms.CharField(label='Тема',  required=True, )
-    message = forms.CharField(label='Сообщение', widget=forms.Textarea(), required=True, )
-
-    
+    name = forms.CharField(label='',  required=True, widget=forms.TextInput(
+        attrs={'class': 'form-control', 'placeholder': 'Имя'}))
+    email = forms.EmailField(label='',  required=True, widget=forms.TextInput(
+        attrs={'class': 'form-control', 'placeholder': 'Почта'}))
+    subject = forms.CharField(label='',  required=True, widget=forms.TextInput(
+        attrs={'class': 'form-control', 'placeholder': 'Тема'}))
+    message = forms.CharField(label='', widget=forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'сообщение'}), required=True, )
