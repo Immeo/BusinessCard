@@ -5,6 +5,23 @@ from .models import *
 
 
 # Register your models here.
+class logoForm(forms.ModelForm):
+    """
+    docstring
+    """
+    logotype = forms.CharField(
+        label='Ваше Лого', widget=CKEditorUploadingWidget())
+
+    class Meta:
+        model = logo
+        fields = '__all__'
+
+
+class logoAdmin(admin.ModelAdmin):
+    form = logoForm
+
+
+admin.site.register(logo, logoAdmin)
 admin.site.register(nav)
 admin.site.register(hero)
 
@@ -95,7 +112,7 @@ class JobTextForm(forms.ModelForm):
     """
     docstring
     """
-    CtaP = forms.CharField(
+    JobTextP = forms.CharField(
         label='Текст под заговолком', widget=CKEditorUploadingWidget())
 
     class Meta:
@@ -129,3 +146,4 @@ class MyJobAdmin(admin.ModelAdmin):
 
 admin.site.register(MyJob, MyJobAdmin)
 admin.site.register(contact)
+admin.site.register(SocNet)

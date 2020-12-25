@@ -8,6 +8,14 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 # Create your models here.
 
+class logo(models.Model):
+    logotype = models.TextField(
+        blank=True,
+        null=True,
+    )
+
+    def __str__(self):
+        return 'Ваше лого'
 
 class nav(models.Model):
     nav = models.CharField(
@@ -1020,3 +1028,120 @@ class contact(models.Model):
 
     def __str__(self):
         return 'почта {} телефон {}'.format(self.Email, self.call)
+
+class SocNet(models.Model):
+    SocChoice = (
+        ('adobe', 'adobe'),
+        ('airbnb', 'airbnb'),
+        ('algolia', 'algolia'),
+        ('amazon', 'amazon'),
+        ('android', 'android'),
+        ('angular', 'angular'),
+        ('apple', 'apple'),
+        ('audible', 'audible'),
+        ('baidu', 'baidu'),
+        ('behance', 'behance'),
+        ('bing', 'bing'),
+        ('bitcoin', 'bitcoin'),
+        ('blogger', 'blogger'),
+        ('bootstrap', 'bootstrap'),
+        ('chrome', 'chrome'),
+        ('codepen', 'codepen'),
+        ('creative-commons', 'creative-commons'),
+        ('css3', 'css3'),
+        ('dailymotion', 'dailymotion'),
+        ('deviantart', 'deviantart'),
+        ('dev-to', 'dev-to'),
+        ('digg', 'digg'),
+        ('digitalocean', 'digitalocean'),
+        ('discord', 'discord'),
+        ('discourse', 'discourse'),
+        ('dribbble', 'dribbble'),
+        ('dropbox', 'dropbox'),
+        ('drupal', 'drupal'),
+        ('ebay', 'ebay'),
+        ('edge', 'edge'),
+        ('etsy', 'etsy'),
+        ('facebook', 'facebook'),
+        ('figma', 'figma'),
+        ('firefox', 'firefox'),
+        ('flickr', 'flickr'),
+        ('foursquare', 'foursquare'),
+        ('git', 'git'),
+        ('github', 'github'),
+        ('gitlab', 'gitlab'),
+        ('google', 'google'),
+        ('imdb', 'imdb'),
+        ('instagram', 'instagram'),
+        ('internet-explorer', 'internet-explorer'),
+        ('invision', 'invision'),
+        ('javascript', 'javascript'),
+        ('joomla', 'joomla'),
+        ('jquery', 'jquery'),
+        ('jsfiddle', 'jsfiddle'),
+        ('kickstarter', 'kickstarter'),
+        ('less', 'less'),
+        ('linkedin', 'linkedin'),
+        ('magento', 'magento'),
+        ('mailchimp', 'mailchimp'),
+        ('mastercard', 'mastercard'),
+        ('medium', 'medium'),
+        ('medium-old', 'medium-old'),
+        ('messenger', 'messenger'),
+        ('microsoft', 'microsoft'),
+        ('nodejs', 'nodejs'),
+        ('opera', 'opera'),
+        ('patreon', 'patreon'),
+        ('paypal', 'paypal'),
+        ('periscope', 'periscope'),
+        ('pinterest', 'pinterest'),
+        ('play-play', 'play-play'),
+        ('pocket', 'pocket'),
+        ('product-hunt', 'product-hunt'),
+        ('quora', 'quora'),
+        ('react', 'react'),
+        ('redbubble', 'redbubble'),
+        ('reddit', 'reddit'),
+        ('redux', 'redux'),
+        ('sass', 'sass'),
+        ('shopify', 'shopify'),
+        ('skype', 'skype'),
+        ('slack', 'slack'),
+        ('snapchat', 'snapchat'),
+        ('soundcloud', 'soundcloud'),
+        ('spotify', 'spotify'),
+        ('squarespace', 'squarespace'),
+        ('stack', 'stack'),
+        ('stripe', 'stripe'),
+        ('telegram', 'telegram'),
+        ('trello', 'trello'),
+        ('tumblr', 'tumblr'),
+        ('twitch', 'twitch'),
+        ('twitter', 'twitter'),
+        ('unsplash', 'unsplash'),
+        ('vimeo', 'vimeo'),
+        ('visa', 'visa'),
+        ('vk', 'vk'),
+        ('vuejs', 'vuejs'),
+        ('whatsapp', 'whatsapp'),
+        ('wikipedia', 'wikipedia'),
+        ('windows', 'windows'),
+        ('wix', 'wix'),
+        ('wordpress', 'wordpress'),
+        ('yahoo', 'yahoo'),
+        ('yelp', 'yelp'),
+        ('youtube', 'youtube'),
+    )
+
+    SocIcon = models.CharField(
+        verbose_name='выберите соц.сеть либо иконку из списка',
+        max_length=250,
+        choices=SocChoice
+    )
+    SocUrl = models.URLField(
+        verbose_name='Введите ссылку',
+        max_length=200
+    )
+
+    def __str__(self):
+        return 'ссылка на {}'.format(self.SocUrl)
