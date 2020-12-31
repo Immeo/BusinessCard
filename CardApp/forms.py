@@ -16,4 +16,4 @@ class SubscribeForm(forms.Form):
     docstring
     """
     SubEemail = forms.EmailField(label='', widget=forms.TextInput(
-        attrs={'class': 'form-control', 'placeholder': 'Почта'}))
+        attrs={'class': 'form-control'}), required=True)

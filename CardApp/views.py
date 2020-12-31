@@ -1,12 +1,14 @@
 from django.http import HttpResponseRedirect
-from django.http import JsonResponse
+from django.http import JsonResponse, Http404
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 from django.contrib import messages
 from django.shortcuts import render
 from django.urls import reverse
 from django.views import View
 from django.views.generic.edit import FormView
 from django.views.generic import ListView, DetailView
-from django.core.mail import EmailMessage
+from django.core.mail import EmailMessage, send_mail
 from BusinessCard.settings import RECIPIENTS_EMAIL, DEFAULT_FROM_EMAIL
 from .forms import EmailForm, SubscribeForm
 from .models import *
@@ -14,6 +16,7 @@ from .models import *
 
 
 class navListView(ListView):
+    method_decorator(csrf_exempt)
     model = nav
     template_name = "CardApp/index.html"
     context_object_name = 'nav'
@@ -38,17 +41,19 @@ class navListView(ListView):
         context['Jobcategory'] = Jobcategory.objects.all()
         context['MyJob'] = MyJob.objects.all()
         context['contact'] = contact.objects.all()
+        context['FooterListHeaders'] = FooterListHeaders.objects.all()
+        context['FooterLinksTwo'] = FooterLinksTwo.objects.all()
+        context['FooterSubscribeF'] = FooterSubscribeF.objects.all()
         context['SocNet'] = SocNet.objects.all()
         context['EmailForm'] = EmailForm()
         context['SubscribeForm'] = SubscribeForm()
         return context
-    
-    
+
+
 class EmailAttachementView(View):
+    method_decorator(csrf_exempt)
     form_class = EmailForm
     template_name = 'CardApp/email_form.html'
-
-
 
     def get(self, request, *args, **kwargs):
         form = self.form_class()
@@ -79,18 +84,38 @@ class EmailAttachementView(View):
 
             return render(request, self.template_name, {'email_form': form, 'error_message': 'возникла ошибка, попробуйте позже'})
 
-class ModelView(View):
-    template_name = ".html"
 
+def SubscribeFormViews(request):
+    SUBJECT = "The message from a contact form"
+    message = '''try'''
+    if not request.is_ajax():
+        raise Http404('No ajax!')
+    else:
+        form = SubscribeForm(request.POST or None)
+        if form.is_valid():
+            EMAIL_TO = form.cleaned_data['SubEemail']
+            send_mail(SUBJECT, message, DEFAULT_FROM_EMAIL, [EMAIL_TO])
+            # print(email_content)
+            r = {'form_is_valid': True}
+        else:
+            r = {'form_is_valid': False, 'form_errors': form.errors.as_json()}
+    return JsonResponse(r)
 
 class MyJobView(DetailView):
+    method_decorator(csrf_exempt)
+    
     model = MyJob
     template_name = 'CardApp/portfolio-details.html'
 
     def get_context_data(self, **kwargs):
         context = super(MyJobView, self).get_context_data(**kwargs)
+        context['logo'] = logo.objects.all()
         context['Jobcategory'] = Jobcategory.objects.all()
         context['nav'] = nav.objects.all()
         context['contact'] = contact.objects.all()
         context['SocNet'] = SocNet.objects.all()
+        context['FooterListHeaders'] = FooterListHeaders.objects.all()
+        context['FooterLinksTwo'] = FooterLinksTwo.objects.all()
+        context['FooterSubscribeF'] = FooterSubscribeF.objects.all()
+        context['SubscribeForm'] = SubscribeForm()
         return context

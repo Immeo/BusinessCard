@@ -8,6 +8,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 # Create your models here.
 
+
 class logo(models.Model):
     logotype = models.TextField(
         blank=True,
@@ -17,9 +18,10 @@ class logo(models.Model):
     def __str__(self):
         return 'Ваше лого'
 
+
 class nav(models.Model):
     nav = models.CharField(
-        verbose_name='Изменить текст пункта меню 1',
+        verbose_name='Изменить текст пункта меню',
         max_length=150,
         blank=True,
         null=True,
@@ -98,9 +100,6 @@ class hero(models.Model):
         blank=True,
         null=True,
     )
-
-    def __str__(self):
-        return self.TopFirstH1
     TopFirstH1 = models.CharField(
         verbose_name='Изменить текст первого H1',
         max_length=150,
@@ -170,45 +169,11 @@ class hero(models.Model):
 
 
 class AboutSection(models.Model):
-    # AboutSectionH2 = models.CharField(
-    #     verbose_name='Изменить название тега h2 во второй секции',
-    #     max_length=150,
-    #     blank=True,
-    #     null=True,
-    # )
     AboutSectionP = models.TextField(
         verbose_name='Изменить текст под тегом h2 во второй секции',
         blank=True,
         null=True,
     )
-    # AboutSectionTextArea1 = models.TextField(
-    #     verbose_name='Изменить текст первой колонки во второй секции',
-    #     blank=True,
-    #     null=True,
-    # )
-    # AboutSectionTextArea2 = models.TextField(
-    #     verbose_name='Изменить текст второй колонки во второй секции',
-    #     blank=True,
-    #     null=True,
-    # )
-    # AboutLi1 = models.CharField(
-    #     verbose_name='Изменить текст пункта второго сектора 1',
-    #     max_length=150,
-    #     blank=True,
-    #     null=True,
-    # )
-    # AboutLi2 = models.CharField(
-    #     verbose_name='Изменить текст пункта второго сектора 2',
-    #     max_length=150,
-    #     blank=True,
-    #     null=True,
-    # )
-    # AboutLi3 = models.CharField(
-    #     verbose_name='Изменить текст пункта второго сектора 3',
-    #     max_length=150,
-    #     blank=True,
-    #     null=True,
-    # )
     AboutButton = models.CharField(
         verbose_name='Изменить текст кнопки второго сектора',
         max_length=150,
@@ -283,7 +248,7 @@ class AboutVideoSection(models.Model):
         null=True,
     )
     # AboutVideoSectionH3 = models.CharField(
-    #     verbose_name='Изменить заговолок',
+    #     verbose_name='Изменить заголовок',
     #     max_length=150,
     #     blank=True,
     #     null=True,
@@ -293,35 +258,7 @@ class AboutVideoSection(models.Model):
         blank=True,
         null=True
     )
-    # AboutVideoSectionLi1 = models.CharField(
-    #     verbose_name='Изменить текст пункта 1',
-    #     max_length=150,
-    #     blank=True,
-    #     null=True,
-    # )
-    # AboutVideoSectionLi2 = models.CharField(
-    #     verbose_name='Изменить текст пункта 2',
-    #     max_length=150,
-    #     blank=True,
-    #     null=True,
-    # )
-    # AboutVideoSectionLi3 = models.CharField(
-    #     verbose_name='Изменить текст пункта 3',
-    #     max_length=150,
-    #     blank=True,
-    #     null=True,
-    # )
-    # AboutVideoSectionLi4 = models.CharField(
-    #     verbose_name='Изменить текст пункта 4',
-    #     max_length=150,
-    #     blank=True,
-    #     null=True,
-    # )
-    # AboutVideoSectionEndP = models.TextField(
-    #     verbose_name='Изменить текст в конце секции',
-    #     blank=True,
-    #     null=True
-    # )
+    
 
     def __str__(self):
         return 'обьект {}'.format(self.pk,)
@@ -357,7 +294,7 @@ class reviews(models.Model):
 
 class TestimonialsAndSevicesText(models.Model):
     TestimonialsH3 = models.CharField(
-        verbose_name='Изменить заговолок секции Testimonials',
+        verbose_name='Изменить заголовок секции Testimonials',
         max_length=150,
         blank=True,
         null=True,
@@ -368,7 +305,7 @@ class TestimonialsAndSevicesText(models.Model):
         null=True,
     )
     SevicesH3 = models.CharField(
-        verbose_name='Изменить заговолок секции Sevices',
+        verbose_name='Изменить заголовок секции Sevices',
         max_length=150,
         blank=True,
         null=True,
@@ -492,7 +429,7 @@ class Jobcategory(models.Model):
 
 class JobText(models.Model):
     JobTextH3 = models.CharField(
-        verbose_name='Изменить заговолок',
+        verbose_name='Изменить заголовок',
         max_length=150,
         blank=True,
         null=True,
@@ -545,7 +482,7 @@ class MyJob(models.Model):
         max_length=150,
         blank=True,
         null=True,
-    )    
+    )
     MyJobJobCategory = models.ForeignKey(
         Jobcategory,
         on_delete=models.PROTECT,
@@ -907,7 +844,7 @@ class pricing(models.Model):
 
 class TeamText(models.Model):
     TeamTextH3 = models.CharField(
-        verbose_name='Изменить заговолок',
+        verbose_name='Изменить заголовок',
         max_length=150,
         blank=True,
         null=True,
@@ -981,7 +918,7 @@ class GenericAsk(models.Model):
 
 class contact(models.Model):
     ContactH3 = models.CharField(
-        verbose_name='Изменить заговолок',
+        verbose_name='Изменить заголовок',
         max_length=150,
         blank=True,
         null=True,
@@ -1028,6 +965,58 @@ class contact(models.Model):
 
     def __str__(self):
         return 'почта {} телефон {}'.format(self.Email, self.call)
+
+
+class FooterListHeaders(models.Model):
+    FooterRtitle1 = models.CharField(
+        verbose_name='Изменить первый заголовок перед первым списком',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    FooterRtitle2 = models.CharField(
+        verbose_name='Изменить второй заголовок перед вторым списком',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    
+    def __str__(self):
+        return 'Заголовки списков футера'
+
+class FooterLinksTwo(models.Model):
+    FooterLink = models.CharField(
+        verbose_name='Изменить текст пункта меню',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    SlugFooter = models.CharField(
+        verbose_name='Ссылка или якорь пункта меню',
+        max_length=400,
+        unique=True,
+    )
+
+    def __str__(self):
+        return self.FooterLink
+
+
+class FooterSubscribeF(models.Model):
+    FooterSubh4 = models.CharField(
+        verbose_name='Изменить заголовок формы подписки',
+        max_length=150,
+        blank=True,
+        null=True,
+    )
+    FooterSubP = models.TextField(
+        verbose_name='Изменить текст формы подписки',
+        blank=True,
+        null=True,
+    )
+
+    def __str__(self):
+        return 'Изменить текст в футере формы подписки'
+
 
 class SocNet(models.Model):
     SocChoice = (

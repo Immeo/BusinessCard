@@ -1,9 +1,12 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="csrf-param" content="_csrf">
+    <meta name="csrf-token" content="aKvoKaATAmSuJOKntluVitE4z7iVTUnqor1RTyZNkhcLOGZTkPCBH1UbFN9W5fSW">
 
     <title>OnePage Bootstrap Template - Index</title>
     <meta content="" name="descriptison" />
@@ -11,39 +14,20 @@
 
     <!-- Favicons -->
     <link href="{% static 'img/favicon.png' %}" rel="icon" />
-    <link
-      href="{% static 'img/apple-touch-icon.png' %}"
-      rel="apple-touch-icon"
-    />
+    <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon" />
 
     <!-- Google Fonts -->
     <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-      rel="stylesheet"
-    />
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet" />
 
     <!-- Vendor CSS Files -->
-    <link
-      href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}"
-      rel="stylesheet"
-    />
-    <link
-      href="{% static 'vendor/icofont/icofont.min.css' %}"
-      rel="stylesheet"
-    />
-    <link
-      href="{% static 'vendor/boxicons/css/boxicons.min.css' %}"
-      rel="stylesheet"
-    />
-    <link
-      href="{% static 'vendor/remixicon/remixicon.css' %}"
-      rel="stylesheet"
-    />
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'vendor/icofont/icofont.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'vendor/remixicon/remixicon.css' %}" rel="stylesheet" />
     <link href="{% static 'vendor/venobox/venobox.css' %}" rel="stylesheet" />
-    <link
-      href="{% static 'vendor/owl.carousel/assets/owl.carousel.min.css' %}"
-      rel="stylesheet"
-    />
+    <link href="{% static 'vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet" />
     <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet" />
 
     <!-- Template Main CSS File -->
@@ -54,27 +38,27 @@
   * Template URL: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/======================================================== -->
-  </head>
+</head>
 
-  <body>
+<body>
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top">
-      <div class="container d-flex align-items-center">
-        {{logo.0.logotype|safe}}
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html" class="logo mr-auto"><img src="{% static '/img/logo.png" alt' %}="" class="img-fluid"></a>-->
+        <div class="container d-flex align-items-center">
+            {{logo.0.logotype|safe}}
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <!-- <a href="index.html" class="logo mr-auto"><img src="{% static '/img/logo.png" alt' %}="" class="img-fluid"></a>-->
 
-        <nav class="nav-menu d-none d-lg-block">
-          <ul>
-            {% for text in nav %}
-            <li class="{% if forloop.counter == 1 %} active {% endif %}">
-              <a href="{{text.SlugNav}}">{{text.nav}}</a>
-            </li>
-            {% endfor %}
-          </ul>
-        </nav>
-        <!-- .nav-menu -->
-      </div>
+            <nav class="nav-menu d-none d-lg-block">
+                <ul>
+                    {% for text in nav %}
+                    <li class="{% if forloop.counter == 1 %} active {% endif %}">
+                        <a href="{{text.SlugNav}}">{{text.nav}}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+            <!-- .nav-menu -->
+        </div>
     </header>
     <!-- End Header -->
 
@@ -82,87 +66,73 @@
 
     <!-- ======= Footer ======= -->
     <footer id="footer">
-      <div class="footer-top">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-3 col-md-6 footer-contact">
-              <h3>{{logo.0.logotype|safe}}</h3>
-              <p>{{contact.0.location}} <br />
-                <strong>{{contact.0.EmailTitle}}:</strong> {{contact.0.Email}}<br />
-                <strong>{{contact.0.CallTitle}}:</strong> {{contact.0.call}}<br />
-              </p>
-            </div>
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 footer-contact">
+                        <h3>{{logo.0.logotype|safe}}</h3>
+                        <p>{{contact.0.location}} <br />
+                            <strong>{{contact.0.EmailTitle}}:</strong> {{contact.0.Email}}<br />
+                            <strong>{{contact.0.CallTitle}}:</strong> {{contact.0.call}}<br />
+                        </p>
+                    </div>
 
-            <div class="col-lg-2 col-md-6 footer-links">
-              <h4>Useful Links</h4>
-              <ul>
-                {% for text in nav %}
-                <li class="bx bx-chevron-right">
-                  <a href="{{text.SlugNav}}">{{text.nav}}</a>
-                </li>
+                    <div class="col-lg-2 col-md-6 footer-links">
+                        <h4>{{FooterListHeaders.0.FooterRtitle1}}</h4>
+                        <ul>
+                            {% for text in nav %}
+                            <li class="bx bx-chevron-right">
+                                <a href="{{text.SlugNav}}">{{text.nav}}</a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>{{FooterListHeaders.0.FooterRtitle2}}</h4>
+                        <ul>
+                            {% for i in FooterLinksTwo %}
+                            <li>
+                                <i class="bx bx-chevron-right"></i> <a href="{{i.SlugFooter}}">{{i.FooterLink}}</a>
+                            </li>
+                            {% endfor %}
+                            
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 footer-newsletter">
+                        <h4>{{FooterSubscribeF.0.FooterSubh4}}</h4>
+                        <p>{{FooterSubscribeF.0.FooterSubP}}</p>
+                        <form action="" method="post" id="FormSub">
+                            {% csrf_token %}
+                            {{SubscribeForm.SubEemail}}
+                            <div class="validate"></div>
+                            <input type="submit" value="Подписаться" id="AjaxSend">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container d-md-flex py-4">
+            <div class="mr-md-auto text-center text-md-left">
+                <div class="copyright">
+                    &copy; Copyright <strong><span>OnePage</span></strong>. All Rights Reserved
+                </div>
+                <div class="credits">
+                    <!-- All the links in the footer should remain intact. -->
+                    <!-- You can delete the links only if you purchased the pro version. -->
+                    <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                    <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/onepage-mu/ltipurpose-bootstrap-template/ -->
+                    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                </div>
+            </div>
+            <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                {% for soc in SocNet %}
+                <a href="{{soc.SocUrl}}" class="{{soc.SocIcon}}"><i class="bx bxl-{{soc.SocIcon}}"></i></a>
                 {% endfor %}
-              </ul>
             </div>
-
-            <div class="col-lg-3 col-md-6 footer-links">
-              <h4>Our Services</h4>
-              <ul>
-                <li>
-                  <i class="bx bx-chevron-right"></i> <a href="#">Web Design</a>
-                </li>
-                <li>
-                  <i class="bx bx-chevron-right"></i>
-                  <a href="#">Web Development</a>
-                </li>
-                <li>
-                  <i class="bx bx-chevron-right"></i>
-                  <a href="#">Product Management</a>
-                </li>
-                <li>
-                  <i class="bx bx-chevron-right"></i> <a href="#">Marketing</a>
-                </li>
-                <li>
-                  <i class="bx bx-chevron-right"></i>
-                  <a href="#">Graphic Design</a>
-                </li>
-              </ul>
-            </div>
-
-            <div class="col-lg-4 col-md-6 footer-newsletter">
-              <h4>Join Our Newsletter</h4>
-              <p>
-                Tamen quem nulla quae legam multos aute sint culpa legam noster
-                magna
-              </p>
-              <form action="" method="post">
-                {{SubscribeForm.SubEemail}}
-                <input type="submit" value="Подписаться" id="SendSubscribe">
-              </form>
-            </div>
-          </div>
         </div>
-      </div>
-
-      <div class="container d-md-flex py-4">
-        <div class="mr-md-auto text-center text-md-left">
-          <div class="copyright">
-            &copy; Copyright <strong><span>OnePage</span></strong
-            >. All Rights Reserved
-          </div>
-          <div class="credits">
-            <!-- All the links in the footer should remain intact. -->
-            <!-- You can delete the links only if you purchased the pro version. -->
-            <!-- Licensing information: https://bootstrapmade.com/license/ -->
-            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/onepage-mu/ltipurpose-bootstrap-template/ -->
-            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-          </div>
-        </div>
-        <div class="social-links text-center text-md-right pt-3 pt-md-0">
-          {% for soc in SocNet %}
-          <a href="{{soc.SocUrl}}" class="{{soc.SocIcon}}"><i class="bx bxl-{{soc.SocIcon}}"></i></a>
-          {% endfor %}
-        </div>
-      </div>
     </footer>
     <!-- End Footer -->
 
@@ -183,5 +153,49 @@
 
     <!-- Template Main JS File -->
     <script src="{% static '/js/main.js' %}"></script>
-  </body>
+    <!-- <script src="{% static '/js/SendMailAjax.js' %}"></script> -->
+
+    <!-- Other JS -->
+    <script>
+    </script>
+    <script>
+        emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
+
+        $(document).ready(function () {
+            console.log('test');
+            $('#AjaxSend').on('click', function (e) {
+                e.preventDefault();
+                var SubEemail = $('#id_SubEemail').val();
+                if(SubEemail.indexOf("@") < 0 || SubEemail.indexOf(".") < 0) {
+                    alert('Неправильный формат почты');
+                    return;
+                } else {
+                    console.log();
+                }
+                var test = $('#FormSub input:hidden').val();
+                var data = {
+                    SubEemail: SubEemail,
+                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+                };
+
+
+                $.ajax({
+                    type: "post",
+                    url: "http://127.0.0.1:8000/subs/",
+                    data: data,
+                    success: function (response) {
+                        console.log(response);
+                        alert('Вы подписались, спасибо!')
+                    },
+                    error: function (error) {
+                        console.log(JSON.stringify(error));
+                        console.log(data);
+                    }
+                });
+            })
+        });
+        // const csrftoken = Cookies.get('csrftoken');
+    </script>
+</body>
+
 </html>

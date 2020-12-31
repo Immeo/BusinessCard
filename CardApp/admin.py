@@ -147,3 +147,6 @@ class MyJobAdmin(admin.ModelAdmin):
 admin.site.register(MyJob, MyJobAdmin)
 admin.site.register(contact)
 admin.site.register(SocNet)
+admin.site.register(FooterListHeaders)
+admin.site.register(FooterLinksTwo)
+admin.site.register(FooterSubscribeF)

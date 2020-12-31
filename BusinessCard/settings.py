@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'CardApp',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -217,3 +218,5 @@ CKEDITOR_CONFIGS = {
         ]),
     }
 }
+
+CSRF_COOKIE_SECURE=True
